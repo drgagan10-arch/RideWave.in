@@ -3,78 +3,54 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RideWave Cabs</title>
+<title>Ride Waves</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial;background:#ffffff;color:#111;scroll-behavior:smooth}
 
-body{
-  font-family:system-ui,Arial;
-  background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
-  color:#ffffff;
-}
-
-header{
-  background:#0f172a;
-  padding:15px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.logo{font-size:22px;font-weight:bold}
+header{position:sticky;top:0;background:#fff;padding:15px;display:flex;justify-content:space-between;border-bottom:1px solid #eee;z-index:1000}
+.logo{font-size:22px;font-weight:bold;color:#2563eb}
 .menu-btn{font-size:24px;cursor:pointer}
 
-.navbar{
+/* overlay */
+.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);display:none;z-index:900}
+.overlay.active{display:block}
+
+.sidebar{position:fixed;top:0;left:-260px;width:260px;height:100%;background:#0f172a;color:#fff;padding:20px;transition:.3s;z-index:1000}
+.sidebar.active{left:0}
+.sidebar a{display:block;margin:15px 0;color:#fff;text-decoration:none}
+
+.container{max-width:1100px;margin:auto;padding:20px}
+.section{margin:50px 0}
+
+.hero{text-align:center;padding:60px 20px;background:linear-gradient(135deg,#2563eb,#1e3a8a);color:#fff;border-radius:20px}
+.hero h1{font-size:32px}
+
+.contact-box{background:#fff;color:#2563eb;padding:12px 18px;border-radius:30px;margin-top:15px;display:inline-block;font-weight:bold}
+
+.image-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.image-grid img{width:100%;height:150px;object-fit:cover;border-radius:12px}
+
+.card{background:#fff;padding:18px;border-radius:14px;margin:12px 0;box-shadow:0 10px 25px rgba(0,0,0,0.08)}
+
+.list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.list div{background:#f1f5f9;padding:12px;border-radius:10px}
+
+.footer{background:#0f172a;color:#fff;text-align:center;padding:25px;margin-top:40px}
+
+/* WhatsApp button */
+.whatsapp{
   position:fixed;
-  top:0;left:-260px;
-  width:260px;height:100%;
-  background:#020617;
-  padding:20px;
-  transition:.3s;
-}
-
-.navbar a{display:block;margin:15px 0;color:#fff;text-decoration:none;cursor:pointer}
-.navbar.active{left:0}
-
-.container{padding:15px;max-width:900px;margin:auto}
-
-.card{
-  background:#1e293b;
-  padding:15px;
-  margin:12px 0;
-  border-radius:16px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.4);
-  cursor:pointer;
-}
-
-.card:hover{transform:scale(1.02)}
-
-button{
-  padding:10px 14px;
-  border:none;
-  border-radius:10px;
-  background:#3b82f6;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
   color:#fff;
-  cursor:pointer;
-}
-
-.page{display:none}
-.page.active{display:block}
-
-/* SMALL IMAGE GRID */
-.image-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
-  margin-bottom:15px;
-}
-
-.image-grid img{
-  width:100%;
-  height:120px;
-  object-fit:cover;
-  border-radius:10px;
+  padding:14px 16px;
+  border-radius:50%;
+  font-size:20px;
+  text-decoration:none;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
 }
 
 </style>
@@ -82,132 +58,96 @@ button{
 
 <body>
 
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
 <header>
 <div class="menu-btn" onclick="toggleMenu()">☰</div>
-<div class="logo">🚕 RideWave</div>
+<div class="logo">Ride Waves</div>
 </header>
 
-<div class="navbar" id="menu">
+<div class="sidebar" id="menu">
 <h3>Menu</h3>
-<a onclick="showPage('home')">Home</a>
-<a onclick="showPage('about')">About</a>
-<a onclick="showPage('contact')">Contact</a>
-<a onclick="toggleAdminLogin()">Admin Login</a>
-
-<div id="adminLoginBox" style="display:none">
-<input id="adminUser" placeholder="Username">
-<input id="adminPass" type="password" placeholder="Password">
-<button onclick="loginAdmin()">Login</button>
-</div>
+<a href="#">Home</a>
+<a href="#services">Services</a>
+<a href="#routes">Routes</a>
+<a href="#contact">Contact</a>
 </div>
 
 <div class="container">
 
-<!-- HOME -->
-<div id="home" class="page active">
+<div class="hero">
+<h1>Premium Cab Service in Amritsar</h1>
+<p>Up to 500KM Coverage | Delhi • Manali • Agra</p>
+<div class="contact-box">📞 8221826243</div>
+</div>
 
-<!-- SMALL IMAGES -->
+<div class="section">
+<h2>Destinations</h2>
 <div class="image-grid">
 <img src="images/agra.jpg">
 <img src="images/darbar shaib.jpg">
-<img src="images/dal lake.jpg">
+<img src="images/dallake.jpg">
 <img src="images/manali.jpg">
 </div>
+</div>
+
+<div id="services" class="section">
+<h2>Services</h2>
+<div class="card">Local City Rides</div>
+<div class="card">Airport Transfers</div>
+<div class="card">Outstation Trips (500KM)</div>
+<div class="card">Corporate Travel</div>
+</div>
+
+<div id="routes" class="section">
+<h2>Popular Routes</h2>
+<div class="list">
+<div>Amritsar → Delhi</div>
+<div>Amritsar → Agra</div>
+<div>Amritsar → Manali</div>
+<div>Amritsar → Srinagar</div>
+<div>Amritsar → Chandigarh</div>
+<div>Amritsar → Jammu</div>
+</div>
+</div>
+
+<div class="section">
+<h2>Why Choose Us</h2>
+<div class="card">✔ Trusted Drivers</div>
+<div class="card">✔ Clean AC Cars</div>
+<div class="card">✔ Affordable Pricing</div>
+<div class="card">✔ 24/7 Service</div>
+</div>
+
+<div class="section">
+<h2>Customer Reviews</h2>
+<div class="card">⭐️⭐️⭐️⭐️⭐️ Excellent service from Amritsar to Delhi!</div>
+<div class="card">⭐️⭐️⭐️⭐️ Very comfortable ride to Manali.</div>
+</div>
+
+<div id="contact" class="section">
 <h2>Contact</h2>
-<div id="Owner"></div>
-</div>
-
- <!-- PROFILE -->
-<div id="profile" class="page">
-<div class="card" id="profileData"></div>
-<button onclick="showPage('home')">⬅ Back</button>
-</div>
-
-<div id="about" class="page">
-<div class="card">
-<h2>About RideWave</h2>
-<p>Modern cab service platform.</p>
-</div>
-</div>
-
-<div id="contact" class="page">
-<div class="card">
-<h2>Contact</h2>
-<p>📧 drgagan.10@gmail.com</p>
-</div>
+<div class="card">📞 8221826243</div>
+<div class="card">📧 drgagan.10@gmail.com</div>
 </div>
 
 </div>
 
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
+<div class="footer">© 2026 Ride Waves</div>
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDTZKMNellQN-kKirr3P_S8rI__ONAJ9A4",
-  authDomain: "cabb-21d19.firebaseapp.com",
-  projectId: "cabb-21d19"
-};
+<!-- WhatsApp -->
+<a class="whatsapp" href="https://wa.me/918221826243" target="_blank">💬</a>
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-const staticDriver = {
-  name: "Gaganjot Singh",
-  car: "Sedan AC",
-  phone: "8221826243",
-  city: "Amritsar",
-  age: "43",
-  gender: "Male"
-};
-
-function driverCard(d){
-  return `
-  <div class="card" onclick='openProfile(${JSON.stringify(d)})'>
-    <b>${d.name}</b><br>
-    ${d.car}<br>
-    📞 ${d.phone}
-  </div>`;
+<script>
+function toggleMenu(){
+  document.getElementById('menu').classList.toggle('active');
+  document.getElementById('overlay').classList.toggle('active');
 }
 
-window.openProfile = function(d){
-  document.getElementById('profileData').innerHTML = `
-    <h2>${d.name}</h2>
-    <p>📞 ${d.phone}</p>
-    <p>Car: ${d.car}</p>
-    <p>City: ${d.city || ''}</p>
-    <p>Age: ${d.age || ''}</p>
-    <p>Gender: ${d.gender || ''}</p>
-    <br>
-    <a href="tel:${d.phone}"><button>Call Now</button></a>
-  `;
-  showPage('profile');
+function closeMenu(){
+  document.getElementById('menu').classList.remove('active');
+  document.getElementById('overlay').classList.remove('active');
 }
-
-async function loadDrivers(){
-  const div = document.getElementById('drivers');
-  div.innerHTML = "";
-
-  div.innerHTML += driverCard(staticDriver);
-
-  const snap = await getDocs(collection(db, "drivers"));
-  snap.forEach(doc=>{
-    const d = doc.data();
-    div.innerHTML += driverCard(d);
-  });
-}
-
-window.toggleMenu=function(){
-  document.getElementById('menu').classList.toggle('active')
-}
-
-window.showPage=function(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'))
-  document.getElementById(id).classList.add('active')
-  document.getElementById('menu').classList.remove('active')
-}
-
-loadDrivers();
 </script>
 
 </body>
