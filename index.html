@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RideWave Cabs</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:system-ui,Arial;
+  background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+  color:#ffffff;
+}
+
+header{
+  background:#0f172a;
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{font-size:22px;font-weight:bold}
+.menu-btn{font-size:24px;cursor:pointer}
+
+.navbar{
+  position:fixed;
+  top:0;left:-260px;
+  width:260px;height:100%;
+  background:#020617;
+  padding:20px;
+  transition:.3s;
+}
+
+.navbar a{display:block;margin:15px 0;color:#fff;text-decoration:none;cursor:pointer}
+.navbar.active{left:0}
+
+.container{padding:15px;max-width:900px;margin:auto}
+
+.card{
+  background:#1e293b;
+  padding:15px;
+  margin:12px 0;
+  border-radius:16px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.4);
+  cursor:pointer;
+}
+
+.card:hover{transform:scale(1.02)}
+
+button{
+  padding:10px 14px;
+  border:none;
+  border-radius:10px;
+  background:#3b82f6;
+  color:#fff;
+  cursor:pointer;
+}
+
+.page{display:none}
+.page.active{display:block}
+
+/* SMALL IMAGE GRID */
+.image-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-bottom:15px;
+}
+
+.image-grid img{
+  width:100%;
+  height:120px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+<div class="logo">🚕 RideWave</div>
+</header>
+
+<div class="navbar" id="menu">
+<h3>Menu</h3>
+<a onclick="showPage('home')">Home</a>
+<a onclick="showPage('about')">About</a>
+<a onclick="showPage('contact')">Contact</a>
+<a onclick="toggleAdminLogin()">Admin Login</a>
+
+<div id="adminLoginBox" style="display:none">
+<input id="adminUser" placeholder="Username">
+<input id="adminPass" type="password" placeholder="Password">
+<button onclick="loginAdmin()">Login</button>
+</div>
+</div>
+
+<div class="container">
+
+<!-- HOME -->
+<div id="home" class="page active">
+
+<!-- SMALL IMAGES -->
+<div class="image-grid">
+<img src="images/agra.jpg">
+<img src="images/darbar shaib.jpg">
+<img src="images/dal lake.jpg">
+<img src="images/manali.jpg">
+</div>
+
+<h2>Available Drivers</h2>
+<div id="drivers"></div>
+</div>
+
+<!-- PROFILE -->
+<div id="profile" class="page">
+<div class="card" id="profileData"></div>
+<button onclick="showPage('home')">⬅ Back</button>
+</div>
+
+<div id="about" class="page">
+<div class="card">
+<h2>About RideWave</h2>
+<p>Modern cab service platform.</p>
+</div>
+</div>
+
+<div id="contact" class="page">
+<div class="card">
+<h2>Contact</h2>
+<p>📧 drgagan.10@gmail.com</p>
+</div>
+</div>
+
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDTZKMNellQN-kKirr3P_S8rI__ONAJ9A4",
+  authDomain: "cabb-21d19.firebaseapp.com",
+  projectId: "cabb-21d19"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const staticDriver = {
+  name: "Gaganjot Singh",
+  car: "Sedan AC",
+  phone: "8221826243",
+  city: "Amritsar",
+  age: "43",
+  gender: "Male"
+};
+
+function driverCard(d){
+  return `
+  <div class="card" onclick='openProfile(${JSON.stringify(d)})'>
+    <b>${d.name}</b><br>
+    ${d.car}<br>
+    📞 ${d.phone}
+  </div>`;
+}
+
+window.openProfile = function(d){
+  document.getElementById('profileData').innerHTML = `
+    <h2>${d.name}</h2>
+    <p>📞 ${d.phone}</p>
+    <p>Car: ${d.car}</p>
+    <p>City: ${d.city || ''}</p>
+    <p>Age: ${d.age || ''}</p>
+    <p>Gender: ${d.gender || ''}</p>
+    <br>
+    <a href="tel:${d.phone}"><button>Call Now</button></a>
+  `;
+  showPage('profile');
+}
+
+async function loadDrivers(){
+  const div = document.getElementById('drivers');
+  div.innerHTML = "";
+
+  div.innerHTML += driverCard(staticDriver);
+
+  const snap = await getDocs(collection(db, "drivers"));
+  snap.forEach(doc=>{
+    const d = doc.data();
+    div.innerHTML += driverCard(d);
+  });
+}
+
+window.toggleMenu=function(){
+  document.getElementById('menu').classList.toggle('active')
+}
+
+window.showPage=function(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'))
+  document.getElementById(id).classList.add('active')
+  document.getElementById('menu').classList.remove('active')
+}
+
+loadDrivers();
+</script>
+
+</body>
+</html>
