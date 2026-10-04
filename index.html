@@ -1,156 +1,1274 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ride Waves</title>
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial;background:#ffffff;color:#111;scroll-behavior:smooth}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-header{position:sticky;top:0;background:#fff;padding:15px;display:flex;justify-content:space-between;border-bottom:1px solid #eee;z-index:1000}
-.logo{font-size:22px;font-weight:bold;color:#2563eb}
-.menu-btn{font-size:24px;cursor:pointer}
+    <title>Ride Waves | Cab & Travel Services</title>
 
-/* overlay */
-.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);display:none;z-index:900}
-.overlay.active{display:block}
+    <meta name="description"
+          content="Ride Waves - Comfortable, safe and reliable cab services from Amritsar to destinations across North India.">
 
-.sidebar{position:fixed;top:0;left:-260px;width:260px;height:100%;background:#0f172a;color:#fff;padding:20px;transition:.3s;z-index:1000}
-.sidebar.active{left:0}
-.sidebar a{display:block;margin:15px 0;color:#fff;text-decoration:none}
+    <link rel="stylesheet" href="style.css">
 
-.container{max-width:1100px;margin:auto;padding:20px}
-.section{margin:50px 0}
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-.hero{text-align:center;padding:60px 20px;background:linear-gradient(135deg,#2563eb,#1e3a8a);color:#fff;border-radius:20px}
-.hero h1{font-size:32px}
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
 
-.contact-box{background:#fff;color:#2563eb;padding:12px 18px;border-radius:30px;margin-top:15px;display:inline-block;font-weight:bold}
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-.image-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
-.image-grid img{width:100%;height:150px;object-fit:cover;border-radius:12px}
-
-.card{background:#fff;padding:18px;border-radius:14px;margin:12px 0;box-shadow:0 10px 25px rgba(0,0,0,0.08)}
-
-.list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.list div{background:#f1f5f9;padding:12px;border-radius:10px}
-
-.footer{background:#0f172a;color:#fff;text-align:center;padding:25px;margin-top:40px}
-
-/* WhatsApp button */
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:#fff;
-  padding:14px 16px;
-  border-radius:50%;
-  font-size:20px;
-  text-decoration:none;
-  box-shadow:0 5px 15px rgba(0,0,0,0.3);
-}
-
-</style>
 </head>
 
 <body>
 
-<div class="overlay" id="overlay" onclick="closeMenu()"></div>
 
-<header>
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
-<div class="logo">Ride Waves</div>
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="container nav-container">
+
+        <a href="#home" class="logo">
+
+            <span class="logo-icon">
+                <i class="fa-solid fa-car-side"></i>
+            </span>
+
+            <span>Ride<span>Waves</span></span>
+
+        </a>
+
+
+        <nav class="navbar" id="navbar">
+
+            <a href="#home">Home</a>
+
+            <a href="#services">Services</a>
+
+            <a href="#destinations">Routes</a>
+
+            <a href="#why-us">Why Us</a>
+
+            <a href="#reviews">Reviews</a>
+
+            <a href="#contact">Contact</a>
+
+        </nav>
+
+
+        <a href="tel:8221826243" class="nav-call">
+
+            <i class="fa-solid fa-phone"></i>
+
+            Call Now
+
+        </a>
+
+
+        <button class="menu-btn" id="menuBtn">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+    </div>
+
 </header>
 
-<div class="sidebar" id="menu">
-<h3>Menu</h3>
-<a href="#">Home</a>
-<a href="#services">Services</a>
-<a href="#routes">Routes</a>
-<a href="#contact">Contact</a>
-</div>
 
-<div class="container">
 
-<div class="hero">
-<h1>Premium Cab Service in Amritsar</h1>
-<p>Up to 500KM Coverage | Delhi • Manali • Agra</p>
-<div class="contact-box">📞 8221826243</div>
-</div>
+<!-- ================= HERO ================= -->
 
-<div class="section">
-<h2>Destinations</h2>
-<div class="image-grid">
-<img src="images/agra.jpg">
-<img src="images/darbar shaib.jpg">
-<img src="images/dal lake.jpg">
-<img src="images/manali.jpg">
-<img src="images/delhi.jpg">
-<img src="images/delhi 1.jpg">
-</div>
-</div>
+<section class="hero" id="home">
 
-<div id="services" class="section">
-<h2>Services</h2>
-<div class="card">Local City Rides</div>
-<div class="card">Airport Transfers</div>
-<div class="card">Outstation Trips (500KM)</div>
-<div class="card">Corporate Travel</div>
-</div>
+    <div class="hero-overlay"></div>
 
-<div id="routes" class="section">
-<h2>Popular Routes</h2>
-<div class="list">
-<div>Amritsar → Delhi</div>
-<div>Amritsar → Agra</div>
-<div>Amritsar → Manali</div>
-<div>Amritsar → Srinagar</div>
-<div>Amritsar → Chandigarh</div>
-<div>Amritsar → Jammu</div>
-</div>
-</div>
+    <div class="container hero-content">
 
-<div class="section">
-<h2>Why Choose Us</h2>
-<div class="card">✔ Trusted Drivers</div>
-<div class="card">✔ Clean AC Cars</div>
-<div class="card">✔ Affordable Pricing</div>
-<div class="card">✔ 24/7 Service</div>
-</div>
+        <div class="hero-text">
 
-<div class="section">
-<h2>Customer Reviews</h2>
-<div class="card">⭐️⭐️⭐️⭐️⭐️ Excellent service from Amritsar to Delhi!</div>
-<div class="card">⭐️⭐️⭐️⭐️ Very comfortable ride to Manali.</div>
-</div>
+            <span class="hero-tag">
+                <i class="fa-solid fa-location-dot"></i>
+                Amritsar's Trusted Travel Partner
+            </span>
 
-<div id="contact" class="section">
-<h2>Contact</h2>
-<div class="card">📞 8221826243</div>
-<div class="card">📧 drgagan.10@gmail.com</div>
-</div>
 
-</div>
+            <h1>
 
-<div class="footer">© 2026 Ride Waves</div>
+                Your Journey.
+                <span>Our Priority.</span>
 
-<!-- WhatsApp -->
-<a class="whatsapp" href="https://wa.me/918221826243" target="_blank">💬</a>
+            </h1>
 
-<script>
-function toggleMenu(){
-  document.getElementById('menu').classList.toggle('active');
-  document.getElementById('overlay').classList.toggle('active');
-}
 
-function closeMenu(){
-  document.getElementById('menu').classList.remove('active');
-  document.getElementById('overlay').classList.remove('active');
-}
-</script>
+            <p>
+
+                Comfortable, safe and reliable cab services
+                for local and outstation journeys across
+                North India.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a href="#booking" class="btn btn-primary">
+
+                    Book Your Ride
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+
+                <a href="https://wa.me/918221826243"
+                   target="_blank"
+                   class="btn btn-whatsapp">
+
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                    WhatsApp Us
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- BOOKING CARD -->
+
+        <div class="booking-card" id="booking">
+
+            <div class="booking-header">
+
+                <span class="booking-icon">
+                    <i class="fa-solid fa-car"></i>
+                </span>
+
+                <div>
+
+                    <h3>Book Your Ride</h3>
+
+                    <p>Tell us where you want to go</p>
+
+                </div>
+
+            </div>
+
+
+            <form id="bookingForm">
+
+                <div class="form-group">
+
+                    <label>
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        Pickup Location
+
+                    </label>
+
+                    <input
+                        type="text"
+                        id="pickup"
+                        placeholder="e.g. Amritsar"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+
+                        <i class="fa-solid fa-flag-checkered"></i>
+
+                        Destination
+
+                    </label>
+
+                    <input
+                        type="text"
+                        id="destination"
+                        placeholder="Where are you going?"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>
+
+                            <i class="fa-regular fa-calendar"></i>
+
+                            Date
+
+                        </label>
+
+                        <input
+                            type="date"
+                            id="travelDate"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+
+                            <i class="fa-solid fa-users"></i>
+
+                            Passengers
+
+                        </label>
+
+                        <select id="passengers">
+
+                            <option value="1">1 Passenger</option>
+
+                            <option value="2">2 Passengers</option>
+
+                            <option value="3">3 Passengers</option>
+
+                            <option value="4">4 Passengers</option>
+
+                            <option value="5">5 Passengers</option>
+
+                            <option value="6">6+ Passengers</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <button type="submit" class="btn booking-btn">
+
+                    Check Availability
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= STATS ================= -->
+
+<section class="stats">
+
+    <div class="container stats-grid">
+
+        <div class="stat">
+
+            <i class="fa-solid fa-road"></i>
+
+            <div>
+
+                <strong>50K+</strong>
+
+                <span>Trips Completed</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <i class="fa-solid fa-users"></i>
+
+            <div>
+
+                <strong>10K+</strong>
+
+                <span>Happy Customers</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+            <div>
+
+                <strong>50+</strong>
+
+                <span>Destinations</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <i class="fa-solid fa-star"></i>
+
+            <div>
+
+                <strong>4.9/5</strong>
+
+                <span>Customer Rating</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= DESTINATIONS ================= -->
+
+<section class="section destinations" id="destinations">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                EXPLORE WITH US
+            </span>
+
+            <h2>
+                Popular <span>Destinations</span>
+            </h2>
+
+            <p>
+                Comfortable rides from Amritsar to some of
+                North India's most beautiful and popular destinations.
+            </p>
+
+        </div>
+
+
+        <!-- ONE COLLECTIVE IMAGE -->
+
+        <div class="destination-grid">
+
+            <article class="destination-card">
+
+                <img
+                    src="images/collective image.png"
+                    alt="Ride Waves Popular Destinations"
+                >
+
+                <div class="destination-info">
+
+                    <span>Explore With Us</span>
+
+                    <h3>
+                        Popular Destinations
+                    </h3>
+
+                    <p>
+                        Travel across North India with Ride Waves
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= SERVICES ================= -->
+
+<section class="section services" id="services">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                OUR SERVICES
+            </span>
+
+            <h2>
+                Travel Your Way
+            </h2>
+
+            <p>
+                Flexible travel solutions designed for every journey.
+            </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+
+                    <i class="fa-solid fa-car"></i>
+
+                </div>
+
+                <h3>Outstation Cabs</h3>
+
+                <p>
+                    Comfortable one-way and round-trip
+                    cab services to cities and hill stations.
+                </p>
+
+                <a href="#contact">
+                    Learn More
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+
+                    <i class="fa-solid fa-city"></i>
+
+                </div>
+
+                <h3>Local Rides</h3>
+
+                <p>
+                    Reliable local transportation for
+                    shopping, meetings and daily travel.
+                </p>
+
+                <a href="#contact">
+                    Learn More
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+
+                    <i class="fa-solid fa-plane-departure"></i>
+
+                </div>
+
+                <h3>Airport Transfers</h3>
+
+                <p>
+                    Hassle-free airport pickup and drop
+                    services with comfortable vehicles.
+                </p>
+
+                <a href="#contact">
+                    Learn More
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+
+                    <i class="fa-solid fa-mountain"></i>
+
+                </div>
+
+                <h3>Hill Station Trips</h3>
+
+                <p>
+                    Explore Manali, Kashmir, Himachal and
+                    other beautiful mountain destinations.
+                </p>
+
+                <a href="#contact">
+                    Learn More
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= ROUTES ================= -->
+
+<section class="section routes">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                POPULAR ROUTES
+            </span>
+
+            <h2>
+                Where We <span>Go</span>
+            </h2>
+
+        </div>
+
+
+        <div class="routes-grid">
+
+
+            <div class="route-card">
+
+                <div class="route-cities">
+
+                    <strong>Amritsar</strong>
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                    <strong>Delhi</strong>
+
+                </div>
+
+                <span>
+                    Comfortable highway journey
+                </span>
+
+            </div>
+
+
+            <div class="route-card">
+
+                <div class="route-cities">
+
+                    <strong>Amritsar</strong>
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                    <strong>Manali</strong>
+
+                </div>
+
+                <span>
+                    Scenic mountain journey
+                </span>
+
+            </div>
+
+
+            <div class="route-card">
+
+                <div class="route-cities">
+
+                    <strong>Amritsar</strong>
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                    <strong>Chandigarh</strong>
+
+                </div>
+
+                <span>
+                    Fast & comfortable travel
+                </span>
+
+            </div>
+
+
+            <div class="route-card">
+
+                <div class="route-cities">
+
+                    <strong>Amritsar</strong>
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                    <strong>Jammu</strong>
+
+                </div>
+
+                <span>
+                    Safe long-distance ride
+                </span>
+
+            </div>
+
+
+            <div class="route-card">
+
+                <div class="route-cities">
+
+                    <strong>Amritsar</strong>
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                    <strong>Srinagar</strong>
+
+                </div>
+
+                <span>
+                    Kashmir road trip
+                </span>
+
+            </div>
+
+
+            <div class="route-card">
+
+                <div class="route-cities">
+
+                    <strong>Amritsar</strong>
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                    <strong>Agra</strong>
+
+                </div>
+
+                <span>
+                    Historic India journey
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= WHY US ================= -->
+
+<section class="section why-us" id="why-us">
+
+    <div class="container why-grid">
+
+
+        <div class="why-image">
+
+            <div class="why-image-content">
+
+                <i class="fa-solid fa-car-side"></i>
+
+                <h3>Ride With Confidence</h3>
+
+                <p>
+                    Every journey matters to us.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="why-content">
+
+            <span class="section-label">
+                WHY RIDE WAVES
+            </span>
+
+            <h2>
+                More Than Just
+                <span>A Ride</span>
+            </h2>
+
+            <p class="why-intro">
+
+                We believe travel should be comfortable,
+                safe and stress-free from beginning to end.
+
+            </p>
+
+
+            <div class="why-list">
+
+
+                <div class="why-item">
+
+                    <div class="why-icon">
+
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h4>Safe & Reliable</h4>
+
+                        <p>
+                            Experienced drivers and well-maintained
+                            vehicles for your peace of mind.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="why-item">
+
+                    <div class="why-icon">
+
+                        <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h4>Transparent Pricing</h4>
+
+                        <p>
+                            Clear pricing with no unnecessary
+                            hidden charges.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="why-item">
+
+                    <div class="why-icon">
+
+                        <i class="fa-solid fa-headset"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h4>24/7 Support</h4>
+
+                        <p>
+                            We're available whenever you need
+                            help with your journey.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="why-item">
+
+                    <div class="why-icon">
+
+                        <i class="fa-solid fa-clock"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h4>On-Time Service</h4>
+
+                        <p>
+                            We respect your time and strive
+                            to keep every journey punctual.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= REVIEWS ================= -->
+
+<section class="section reviews" id="reviews">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                CUSTOMER REVIEWS
+            </span>
+
+            <h2>
+                What Our <span>Customers Say</span>
+            </h2>
+
+        </div>
+
+
+        <div class="reviews-grid">
+
+
+            <div class="review-card">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "Excellent service! The driver was polite,
+                    professional and the car was very clean.
+                    Highly recommended."
+                </p>
+
+                <div class="review-author">
+
+                    <div class="author-avatar">
+                        RS
+                    </div>
+
+                    <div>
+
+                        <strong>Rahul Sharma</strong>
+
+                        <span>Amritsar</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="review-card">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "Had a wonderful trip from Amritsar to Manali.
+                    Everything was smooth and comfortable."
+                </p>
+
+                <div class="review-author">
+
+                    <div class="author-avatar">
+                        PS
+                    </div>
+
+                    <div>
+
+                        <strong>Priya Sharma</strong>
+
+                        <span>Delhi</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="review-card">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "Very reliable cab service. Booking was easy
+                    and the driver arrived exactly on time."
+                </p>
+
+                <div class="review-author">
+
+                    <div class="author-avatar">
+                        AK
+                    </div>
+
+                    <div>
+
+                        <strong>Arjun Kapoor</strong>
+
+                        <span>Chandigarh</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+
+    <div class="container cta-content">
+
+        <div>
+
+            <span class="section-label">
+                READY TO TRAVEL?
+            </span>
+
+            <h2>
+                Your Next Journey
+                Starts Here.
+            </h2>
+
+            <p>
+                Book your comfortable ride today.
+            </p>
+
+        </div>
+
+
+        <div class="cta-buttons">
+
+            <a href="tel:8221826243"
+               class="btn btn-light">
+
+                <i class="fa-solid fa-phone"></i>
+
+                Call 8221826243
+
+            </a>
+
+
+            <a href="https://wa.me/918221826243"
+               target="_blank"
+               class="btn btn-whatsapp">
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+                WhatsApp
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="section contact" id="contact">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                GET IN TOUCH
+            </span>
+
+            <h2>
+                Contact <span>Ride Waves</span>
+            </h2>
+
+            <p>
+                Have a question or planning a trip?
+                Get in touch with us.
+            </p>
+
+        </div>
+
+
+        <div class="contact-grid">
+
+
+            <a href="tel:8221826243"
+               class="contact-card">
+
+                <div class="contact-icon">
+
+                    <i class="fa-solid fa-phone"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Call Us</span>
+
+                    <strong>8221826243</strong>
+
+                </div>
+
+            </a>
+
+
+
+            <a href="https://wa.me/918221826243"
+               target="_blank"
+               class="contact-card">
+
+                <div class="contact-icon">
+
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                </div>
+
+                <div>
+
+                    <span>WhatsApp</span>
+
+                    <strong>Chat With Us</strong>
+
+                </div>
+
+            </a>
+
+
+
+            <a href="mailto:drgagan.10@gmail.com"
+               class="contact-card">
+
+                <div class="contact-icon">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Email</span>
+
+                    <strong>drgagan.10@gmail.com</strong>
+
+                </div>
+
+            </a>
+
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Location</span>
+
+                    <strong>Amritsar, Punjab</strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="container footer-grid">
+
+
+        <div class="footer-brand">
+
+            <a href="#home" class="logo">
+
+                <span class="logo-icon">
+                    <i class="fa-solid fa-car-side"></i>
+                </span>
+
+                <span>Ride<span>Waves</span></span>
+
+            </a>
+
+            <p>
+                Comfortable, safe and reliable travel
+                for every journey.
+            </p>
+
+
+            <div class="social-links">
+
+                <a href="#"
+                   aria-label="Facebook">
+
+                    <i class="fa-brands fa-facebook-f"></i>
+
+                </a>
+
+                <a href="#"
+                   aria-label="Instagram">
+
+                    <i class="fa-brands fa-instagram"></i>
+
+                </a>
+
+                <a href="https://wa.me/918221826243"
+                   target="_blank"
+                   aria-label="WhatsApp">
+
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                </a>
+
+                <a href="#"
+                   aria-label="YouTube">
+
+                    <i class="fa-brands fa-youtube"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="footer-links">
+
+            <h4>Quick Links</h4>
+
+            <a href="#home">Home</a>
+
+            <a href="#services">Services</a>
+
+            <a href="#destinations">Destinations</a>
+
+            <a href="#why-us">Why Us</a>
+
+            <a href="#reviews">Reviews</a>
+
+            <a href="#contact">Contact</a>
+
+        </div>
+
+
+
+        <div class="footer-links">
+
+            <h4>Services</h4>
+
+            <a href="#services">Outstation Cabs</a>
+
+            <a href="#services">Local Rides</a>
+
+            <a href="#services">Airport Transfers</a>
+
+            <a href="#services">Hill Station Trips</a>
+
+        </div>
+
+
+
+        <div class="footer-links">
+
+            <h4>Contact</h4>
+
+            <a href="tel:8221826243">
+                8221826243
+            </a>
+
+            <a href="mailto:drgagan.10@gmail.com">
+                drgagan.10@gmail.com
+            </a>
+
+            <span>
+                Amritsar, Punjab
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <div class="container">
+
+            <p>
+                © 2026 Ride Waves. All Rights Reserved.
+            </p>
+
+            <p>
+                Made with ❤️ for travellers
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- ================= FLOATING WHATSAPP ================= -->
+
+<a href="https://wa.me/918221826243"
+   target="_blank"
+   class="floating-whatsapp">
+
+    <i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
