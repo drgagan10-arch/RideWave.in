@@ -1,760 +1,451 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Ride Waves | Cab & Travel Services</title>
-
-    <meta name="description"
-          content="Ride Waves - Safe, comfortable and reliable cab services from Amritsar to destinations across North India.">
+    <meta name="description" content="Ride Waves - Reliable cab booking and comfortable travel services. Book your ride easily through WhatsApp.">
 
     <link rel="stylesheet" href="style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
-
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
 </head>
 
 <body>
-
-
-<!-- HEADER -->
 
 <header class="header">
 
     <div class="container nav-container">
 
         <a href="index.html" class="logo">
-
-            <span class="logo-icon">
-                <i class="fa-solid fa-car-side"></i>
-            </span>
-
-            <span>Ride<span>Waves</span></span>
-
+            <span>🚕</span>
+            Ride Waves
         </a>
 
+        <button class="menu-toggle" id="menuToggle">
+            ☰
+        </button>
 
         <nav class="navbar" id="navbar">
-
-            <a href="index.html" target="_blank">Home</a>
-
-            <a href="services.html" target="_blank">Services</a>
-
-            <a href="routes.html" target="_blank">Routes</a>
-
-            <a href="why-us.html" target="_blank">Why Us</a>
-
-            <a href="reviews.html" target="_blank">Reviews</a>
-
-            <a href="contact.html" target="_blank">Contact</a>
-
+            <a href="index.html" class="active">Home</a>
+            <a href="services.html">Services</a>
+            <a href="routes.html">Routes</a>
+            <a href="why-us.html">Why Us</a>
+            <a href="reviews.html">Reviews</a>
+            <a href="contact.html">Contact</a>
         </nav>
-
-
-        <a href="tel:8221826243" class="nav-call">
-
-            <i class="fa-solid fa-phone"></i>
-
-            Call Now
-
-        </a>
-
-
-        <button class="menu-btn" id="menuBtn">
-
-            <i class="fa-solid fa-bars"></i>
-
-        </button>
 
     </div>
 
 </header>
 
 
+<main>
 
-<!-- HERO -->
+    <!-- HERO -->
 
-<section class="hero" id="home">
+    <section class="hero">
 
-    <div class="hero-overlay"></div>
+        <div class="hero-content">
 
-    <div class="container hero-content">
-
-
-        <div class="hero-text">
-
-            <span class="hero-tag">
-
-                <i class="fa-solid fa-location-dot"></i>
-
-                Amritsar's Trusted Travel Partner
-
-            </span>
-
+            <span class="hero-tag">🚕 SAFE • COMFORTABLE • RELIABLE</span>
 
             <h1>
-
                 Your Journey.
-
                 <span>Our Priority.</span>
-
             </h1>
 
-
             <p>
-
-                Comfortable, safe and reliable cab services
-                for local and outstation journeys across
-                North India.
-
+                Travel comfortably with Ride Waves.
+                From local rides to long-distance journeys,
+                we make every trip simple and stress-free.
             </p>
-
 
             <div class="hero-buttons">
-
                 <a href="#booking" class="btn btn-primary">
-
-                    Book Your Ride
-
-                    <i class="fa-solid fa-arrow-right"></i>
-
+                    🚕 Book Your Ride
                 </a>
 
-
-                <a href="https://wa.me/918221826243"
-                   target="_blank"
-                   class="btn btn-whatsapp">
-
-                    <i class="fa-brands fa-whatsapp"></i>
-
-                    WhatsApp Us
-
+                <a href="routes.html" class="btn btn-outline">
+                    Explore Routes
                 </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- QUICK FEATURES -->
+
+    <section class="features-section">
+
+        <div class="container">
+
+            <div class="feature-grid">
+
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Safe Travel</h3>
+                    <p>Safety and comfort are our top priorities.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⏰</div>
+                    <h3>On Time</h3>
+                    <p>We value your time and plan every ride carefully.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Fair Pricing</h3>
+                    <p>Transparent and reasonable travel charges.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Easy Booking</h3>
+                    <p>Book your cab directly through WhatsApp.</p>
+                </div>
 
             </div>
 
         </div>
 
+    </section>
 
 
-        <!-- BOOKING FORM -->
+    <!-- BOOKING -->
 
-        <div class="booking-card" id="booking">
+    <section class="booking-section" id="booking">
 
-            <div class="booking-header">
+        <div class="container">
 
-                <span class="booking-icon">
-
-                    <i class="fa-solid fa-car"></i>
-
-                </span>
-
-
-                <div>
-
-                    <h3>Book Your Ride</h3>
-
-                    <p>We'll contact you to confirm your ride</p>
-
-                </div>
-
+            <div class="section-heading">
+                <span>BOOK YOUR RIDE</span>
+                <h2>Plan Your Journey</h2>
+                <p>
+                    Fill in your travel details and send your booking
+                    directly to Ride Waves on WhatsApp.
+                </p>
             </div>
 
 
-            <form id="bookingForm">
+            <div class="booking-card">
+
+                <form id="bookingForm">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label for="name">
+                                Customer Name *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                placeholder="Enter your full name"
+                                required
+                            >
+
+                        </div>
 
 
-                <div class="form-group">
+                        <div class="form-group">
 
-                    <label>
+                            <label for="phone">
+                                Mobile Number *
+                            </label>
 
-                        <i class="fa-solid fa-user"></i>
+                            <input
+                                type="tel"
+                                id="phone"
+                                placeholder="10-digit mobile number"
+                                maxlength="10"
+                                required
+                            >
 
-                        Your Name
-
-                    </label>
-
-                    <input
-                        type="text"
-                        id="customerName"
-                        placeholder="Enter your name"
-                        required
-                    >
-
-                </div>
+                        </div>
 
 
+                        <div class="form-group">
 
-                <div class="form-group">
+                            <label for="pickup">
+                                Pickup Location *
+                            </label>
 
-                    <label>
+                            <input
+                                type="text"
+                                id="pickup"
+                                placeholder="Where should we pick you up?"
+                                required
+                            >
 
-                        <i class="fa-solid fa-phone"></i>
-
-                        Your Mobile Number
-
-                    </label>
-
-                    <input
-                        type="tel"
-                        id="customerPhone"
-                        placeholder="Enter your mobile number"
-                        maxlength="10"
-                        required
-                    >
-
-                </div>
+                        </div>
 
 
+                        <div class="form-group">
 
-                <div class="form-group">
+                            <label for="destination">
+                                Destination *
+                            </label>
 
-                    <label>
+                            <input
+                                type="text"
+                                id="destination"
+                                placeholder="Where are you going?"
+                                required
+                            >
 
-                        <i class="fa-solid fa-location-dot"></i>
-
-                        Pickup Location
-
-                    </label>
-
-                    <input
-                        type="text"
-                        id="pickup"
-                        placeholder="e.g. Amritsar"
-                        required
-                    >
-
-                </div>
+                        </div>
 
 
+                        <div class="form-group">
 
-                <div class="form-group">
+                            <label for="date">
+                                Travel Date *
+                            </label>
 
-                    <label>
+                            <input
+                                type="date"
+                                id="date"
+                                required
+                            >
 
-                        <i class="fa-solid fa-flag-checkered"></i>
-
-                        Destination
-
-                    </label>
-
-                    <input
-                        type="text"
-                        id="destination"
-                        placeholder="Where are you going?"
-                        required
-                    >
-
-                </div>
+                        </div>
 
 
+                        <div class="form-group">
 
-                <div class="form-row">
+                            <label for="passengers">
+                                Passengers *
+                            </label>
 
-                    <div class="form-group">
+                            <select id="passengers" required>
 
-                        <label>
+                                <option value="">
+                                    Select passengers
+                                </option>
 
-                            <i class="fa-regular fa-calendar"></i>
+                                <option value="1">1 Passenger</option>
+                                <option value="2">2 Passengers</option>
+                                <option value="3">3 Passengers</option>
+                                <option value="4">4 Passengers</option>
+                                <option value="5">5 Passengers</option>
+                                <option value="6">6 Passengers</option>
+                                <option value="7">7 Passengers</option>
+                                <option value="8">8 Passengers</option>
 
-                            Travel Date
+                            </select>
 
-                        </label>
-
-                        <input
-                            type="date"
-                            id="travelDate"
-                            required
-                        >
+                        </div>
 
                     </div>
 
 
                     <div class="form-group">
 
-                        <label>
-
-                            <i class="fa-solid fa-users"></i>
-
-                            Passengers
-
+                        <label for="message">
+                            Additional Message
+                            <span>(Optional)</span>
                         </label>
 
-                        <select id="passengers">
-
-                            <option value="1">1 Passenger</option>
-                            <option value="2">2 Passengers</option>
-                            <option value="3">3 Passengers</option>
-                            <option value="4">4 Passengers</option>
-                            <option value="5">5 Passengers</option>
-                            <option value="6+">6+ Passengers</option>
-
-                        </select>
+                        <textarea
+                            id="message"
+                            rows="4"
+                            placeholder="Any special requirements or information..."
+                        ></textarea>
 
                     </div>
 
-                </div>
 
-
-
-                <div class="form-group">
-
-                    <label>
-
-                        <i class="fa-solid fa-message"></i>
-
-                        Additional Message
-
-                    </label>
-
-                    <textarea
-                        id="customerMessage"
-                        rows="3"
-                        placeholder="Any special requirements?"></textarea>
-
-                </div>
-
-
-
-                <button type="submit" class="btn booking-btn">
-
-                    <i class="fa-brands fa-whatsapp"></i>
-
-                    Book Cab on WhatsApp
-
-                </button>
-
-            </form>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- STATS -->
-
-<section class="stats">
-
-    <div class="container stats-grid">
-
-        <div class="stat">
-
-            <i class="fa-solid fa-road"></i>
-
-            <div>
-
-                <strong>50K+</strong>
-
-                <span>Trips Completed</span>
-
-            </div>
-
-        </div>
-
-
-        <div class="stat">
-
-            <i class="fa-solid fa-users"></i>
-
-            <div>
-
-                <strong>10K+</strong>
-
-                <span>Happy Customers</span>
-
-            </div>
-
-        </div>
-
-
-        <div class="stat">
-
-            <i class="fa-solid fa-location-dot"></i>
-
-            <div>
-
-                <strong>50+</strong>
-
-                <span>Destinations</span>
-
-            </div>
-
-        </div>
-
-
-        <div class="stat">
-
-            <i class="fa-solid fa-star"></i>
-
-            <div>
-
-                <strong>4.9/5</strong>
-
-                <span>Customer Rating</span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- DESTINATIONS -->
-
-<section class="section destinations">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <span class="section-label">
-                EXPLORE WITH US
-            </span>
-
-            <h2>
-                Popular <span>Destinations</span>
-            </h2>
-
-            <p>
-                Travel comfortably from Amritsar to
-                beautiful destinations across North India.
-            </p>
-
-        </div>
-
-
-        <div class="destination-grid">
-
-            <article class="destination-card">
-
-                <img
-                    src="images/collective image.png"
-                    alt="Ride Waves Popular Destinations"
-                >
-
-
-                <div class="destination-info">
-
-                    <span>Explore With Us</span>
-
-                    <h3>Popular Destinations</h3>
-
-                    <p>
-                        Delhi • Agra • Manali • Srinagar
-                        and many more
+                    <button
+                        type="submit"
+                        class="btn btn-primary booking-btn"
+                    >
+                        📱 Book Cab on WhatsApp
+                    </button>
+
+                    <p class="booking-note">
+                        Your booking details will be sent directly to Ride Waves WhatsApp.
                     </p>
 
-                </div>
+                </form>
 
-            </article>
+            </div>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
+    <!-- DESTINATIONS -->
 
-<!-- QUICK SERVICES -->
+    <section class="destinations-section">
 
-<section class="section services">
+        <div class="container">
 
-    <div class="container">
+            <div class="section-heading">
 
-        <div class="section-heading">
+                <span>EXPLORE INDIA</span>
 
-            <span class="section-label">
-                OUR SERVICES
-            </span>
+                <h2>Popular Destinations</h2>
 
-            <h2>
-                Travel <span>Your Way</span>
-            </h2>
+                <p>
+                    From spiritual cities to beautiful mountains,
+                    travel with Ride Waves.
+                </p>
+
+            </div>
+
+
+            <div class="destination-grid">
+
+                <article class="destination-card">
+
+                    <img
+                        src="images/collective image.png"
+                        alt="Ride Waves Popular Destinations"
+                    >
+
+                    <div class="destination-info">
+
+                        <span>Explore With Us</span>
+
+                        <h3>Popular Destinations</h3>
+
+                        <p>
+                            Delhi • Agra • Manali • Srinagar
+                            and many more
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section class="about-section">
+
+        <div class="container about-grid">
+
+            <div>
+
+                <span class="section-label">
+                    ABOUT RIDE WAVES
+                </span>
+
+                <h2>
+                    Every Journey Deserves
+                    A Better Ride.
+                </h2>
+
+            </div>
+
+            <div>
+
+                <p>
+                    Ride Waves is built around one simple idea:
+                    make travelling easier, safer and more comfortable.
+                </p>
+
+                <p>
+                    Whether you need a local cab, an airport transfer,
+                    an outstation ride or a long-distance trip,
+                    we are here to help you reach your destination
+                    comfortably.
+                </p>
+
+                <a href="why-us.html" class="text-link">
+                    Why choose Ride Waves →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta-section">
+
+        <div class="container">
+
+            <h2>Ready To Start Your Journey?</h2>
 
             <p>
-                Click below to explore all our services.
+                Book your next ride with Ride Waves.
             </p>
-
-        </div>
-
-
-        <div class="services-grid">
-
-
-            <div class="service-card">
-
-                <div class="service-icon">
-
-                    <i class="fa-solid fa-car"></i>
-
-                </div>
-
-                <h3>Outstation Cabs</h3>
-
-                <p>
-                    Comfortable one-way and round-trip
-                    cab services.
-                </p>
-
-                <a href="services.html" target="_blank">
-                    Explore Service
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
-
-            </div>
-
-
-
-            <div class="service-card">
-
-                <div class="service-icon">
-
-                    <i class="fa-solid fa-plane-departure"></i>
-
-                </div>
-
-                <h3>Airport Transfers</h3>
-
-                <p>
-                    Reliable airport pickup and drop
-                    services.
-                </p>
-
-                <a href="services.html" target="_blank">
-                    Explore Service
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
-
-            </div>
-
-
-
-            <div class="service-card">
-
-                <div class="service-icon">
-
-                    <i class="fa-solid fa-mountain"></i>
-
-                </div>
-
-                <h3>Hill Trips</h3>
-
-                <p>
-                    Beautiful and comfortable mountain
-                    road trips.
-                </p>
-
-                <a href="services.html" target="_blank">
-                    Explore Service
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
-
-            </div>
-
-
-
-            <div class="service-card">
-
-                <div class="service-icon">
-
-                    <i class="fa-solid fa-city"></i>
-
-                </div>
-
-                <h3>Local Rides</h3>
-
-                <p>
-                    Convenient rides around Amritsar
-                    and nearby areas.
-                </p>
-
-                <a href="services.html" target="_blank">
-                    Explore Service
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- CTA -->
-
-<section class="cta">
-
-    <div class="container cta-content">
-
-        <div>
-
-            <span class="section-label">
-                READY TO TRAVEL?
-            </span>
-
-            <h2>
-                Your Next Journey Starts Here.
-            </h2>
-
-            <p>
-                Book your ride and we'll contact you.
-            </p>
-
-        </div>
-
-
-        <div class="cta-buttons">
 
             <a href="#booking" class="btn btn-light">
-
-                <i class="fa-solid fa-car"></i>
-
-                Book Cab
-
-            </a>
-
-
-            <a href="https://wa.me/918221826243"
-               target="_blank"
-               class="btn btn-whatsapp">
-
-                <i class="fa-brands fa-whatsapp"></i>
-
-                WhatsApp
-
+                Book Your Cab
             </a>
 
         </div>
 
-    </div>
+    </section>
 
-</section>
+</main>
 
-
-
-<!-- FOOTER -->
 
 <footer class="footer">
 
     <div class="container footer-grid">
 
+        <div>
 
-        <div class="footer-brand">
-
-            <a href="index.html" class="logo">
-
-                <span class="logo-icon">
-                    <i class="fa-solid fa-car-side"></i>
-                </span>
-
-                <span>Ride<span>Waves</span></span>
-
+            <a href="index.html" class="footer-logo">
+                🚕 Ride Waves
             </a>
 
-
             <p>
-                Comfortable, safe and reliable travel
-                for every journey.
+                Your journey. Our priority.
+                Safe, comfortable and reliable travel.
             </p>
 
+        </div>
 
-            <div class="social-links">
 
-                <a href="#">
-                    <i class="fa-brands fa-facebook-f"></i>
-                </a>
+        <div>
 
-                <a href="#">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
+            <h3>Quick Links</h3>
 
-                <a href="https://wa.me/918221826243"
-                   target="_blank">
-
-                    <i class="fa-brands fa-whatsapp"></i>
-
-                </a>
-
-                <a href="#">
-                    <i class="fa-brands fa-youtube"></i>
-                </a>
-
-            </div>
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="routes.html">Routes</a>
+            <a href="why-us.html">Why Us</a>
 
         </div>
 
 
+        <div>
 
-        <div class="footer-links">
-
-            <h4>Pages</h4>
-
-            <a href="index.html" target="_blank">Home</a>
-
-            <a href="services.html" target="_blank">Services</a>
-
-            <a href="routes.html" target="_blank">Routes</a>
-
-            <a href="why-us.html" target="_blank">Why Us</a>
-
-            <a href="reviews.html" target="_blank">Reviews</a>
-
-            <a href="contact.html" target="_blank">Contact</a>
-
-        </div>
-
-
-
-        <div class="footer-links">
-
-            <h4>Contact</h4>
+            <h3>Contact</h3>
 
             <a href="tel:8221826243">
-                8221826243
+                📞 82218 26243
             </a>
 
             <a href="mailto:drgagan.10@gmail.com">
-                drgagan.10@gmail.com
+                ✉️ drgagan.10@gmail.com
             </a>
 
-            <span>Amritsar, Punjab</span>
-
-        </div>
-
-
-
-        <div class="footer-links">
-
-            <h4>Book</h4>
-
-            <a href="#booking">
-                Book Your Ride
-            </a>
-
-            <a href="https://wa.me/918221826243"
-               target="_blank">
-
-                WhatsApp Us
-
+            <a
+                href="https://wa.me/918221826243"
+                target="_blank"
+                rel="noopener"
+            >
+                💬 WhatsApp
             </a>
 
         </div>
@@ -764,31 +455,13 @@
 
     <div class="footer-bottom">
 
-        <div class="container">
-
-            <p>
-                © 2026 Ride Waves. All Rights Reserved.
-            </p>
-
-            <p>
-                Made with ❤️ for travellers
-            </p>
-
-        </div>
+        <p>
+            © 2026 Ride Waves. All Rights Reserved.
+        </p>
 
     </div>
 
 </footer>
-
-
-
-<a href="https://wa.me/918221826243"
-   target="_blank"
-   class="floating-whatsapp">
-
-    <i class="fa-brands fa-whatsapp"></i>
-
-</a>
 
 
 <script src="script.js"></script>
