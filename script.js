@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     /* =========================
-       MOBILE MENU
+       MOBILE HAMBURGER MENU
     ========================= */
 
     const menuToggle = document.getElementById("menuToggle");
@@ -9,9 +9,47 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (menuToggle && navbar) {
 
-        menuToggle.addEventListener("click", function () {
+        menuToggle.addEventListener("click", function (e) {
+            e.preventDefault();
 
             navbar.classList.toggle("show");
+
+            // Change hamburger to X
+            if (navbar.classList.contains("show")) {
+                menuToggle.innerHTML = "✕";
+            } else {
+                menuToggle.innerHTML = "☰";
+            }
+        });
+
+
+        // Close menu when a navigation link is clicked
+        const navLinks = navbar.querySelectorAll("a");
+
+        navLinks.forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                navbar.classList.remove("show");
+                menuToggle.innerHTML = "☰";
+
+            });
+
+        });
+
+
+        // Close menu if user clicks outside it
+        document.addEventListener("click", function (e) {
+
+            if (
+                !navbar.contains(e.target) &&
+                !menuToggle.contains(e.target)
+            ) {
+
+                navbar.classList.remove("show");
+                menuToggle.innerHTML = "☰";
+
+            }
 
         });
 
@@ -22,31 +60,32 @@ document.addEventListener("DOMContentLoaded", function () {
        BOOKING FORM
     ========================= */
 
-    const bookingForm = document.getElementById("bookingForm");
+    const bookingForm =
+        document.getElementById("bookingForm");
 
     if (bookingForm) {
 
-        const dateInput = document.getElementById("date");
+        const dateInput =
+            document.getElementById("date");
 
-        /* Minimum travel date = today */
-
+        // Minimum date = today
         if (dateInput) {
 
             const today = new Date();
 
-            const year = today.getFullYear();
+            const year =
+                today.getFullYear();
 
-            const month = String(
-                today.getMonth() + 1
-            ).padStart(2, "0");
+            const month =
+                String(today.getMonth() + 1)
+                    .padStart(2, "0");
 
-            const day = String(
-                today.getDate()
-            ).padStart(2, "0");
+            const day =
+                String(today.getDate())
+                    .padStart(2, "0");
 
             dateInput.min =
                 `${year}-${month}-${day}`;
-
         }
 
 
@@ -56,33 +95,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 event.preventDefault();
 
-
                 const name =
-                    document.getElementById("name").value.trim();
+                    document.getElementById("name")
+                    .value.trim();
 
                 const phone =
-                    document.getElementById("phone").value.trim();
+                    document.getElementById("phone")
+                    .value.trim();
 
                 const pickup =
-                    document.getElementById("pickup").value.trim();
+                    document.getElementById("pickup")
+                    .value.trim();
 
                 const destination =
-                    document.getElementById("destination").value.trim();
+                    document.getElementById("destination")
+                    .value.trim();
 
                 const date =
-                    document.getElementById("date").value;
+                    document.getElementById("date")
+                    .value;
 
                 const passengers =
-                    document.getElementById("passengers").value;
+                    document.getElementById("passengers")
+                    .value;
 
                 const extraMessage =
-                    document.getElementById("message").value.trim();
+                    document.getElementById("message")
+                    .value.trim();
 
-
-                /* Validate phone */
 
                 const cleanPhone =
                     phone.replace(/\D/g, "");
+
 
                 if (cleanPhone.length !== 10) {
 
@@ -91,29 +135,28 @@ document.addEventListener("DOMContentLoaded", function () {
                     );
 
                     return;
-
                 }
 
 
-                if (!name ||
+                if (
+                    !name ||
                     !pickup ||
                     !destination ||
                     !date ||
-                    !passengers) {
+                    !passengers
+                ) {
 
                     alert(
                         "Please fill in all required fields."
                     );
 
                     return;
-
                 }
 
 
-                /* Format date */
-
                 const selectedDate =
                     new Date(date + "T00:00:00");
+
 
                 const formattedDate =
                     selectedDate.toLocaleDateString(
@@ -126,10 +169,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     );
 
 
-                /* WhatsApp booking message */
-
                 const message =
-
 `🚕 NEW RIDE WAVES BOOKING
 
 👤 Customer Name: ${name}
@@ -156,8 +196,6 @@ Please contact the customer to confirm the ride.
                     "https://wa.me/918221826243?text=" +
                     encodeURIComponent(message);
 
-
-                /* Open WhatsApp */
 
                 window.open(
                     whatsappURL,
