@@ -1,61 +1,54 @@
-/* =========================================
-   RIDE WAVES JAVASCRIPT
-========================================= */
-
-
 document.addEventListener("DOMContentLoaded", function () {
 
-
-    /* =====================================
+    /* =========================
        MOBILE MENU
-    ===================================== */
+    ========================= */
 
-    const menuBtn =
-        document.getElementById("menuBtn");
+    const menuToggle = document.getElementById("menuToggle");
+    const navbar = document.getElementById("navbar");
 
-    const navbar =
-        document.getElementById("navbar");
+    if (menuToggle && navbar) {
 
+        menuToggle.addEventListener("click", function () {
 
-    if (menuBtn && navbar) {
-
-        menuBtn.addEventListener("click", function () {
-
-            navbar.classList.toggle("active");
-
-            const icon =
-                menuBtn.querySelector("i");
-
-
-            if (navbar.classList.contains("active")) {
-
-                icon.classList.remove("fa-bars");
-
-                icon.classList.add("fa-xmark");
-
-            } else {
-
-                icon.classList.remove("fa-xmark");
-
-                icon.classList.add("fa-bars");
-
-            }
+            navbar.classList.toggle("show");
 
         });
 
     }
 
 
+    /* =========================
+       BOOKING FORM
+    ========================= */
 
-    /* =====================================
-       BOOKING FORM → WHATSAPP
-    ===================================== */
-
-    const bookingForm =
-        document.getElementById("bookingForm");
-
+    const bookingForm = document.getElementById("bookingForm");
 
     if (bookingForm) {
+
+        const dateInput = document.getElementById("date");
+
+        /* Minimum travel date = today */
+
+        if (dateInput) {
+
+            const today = new Date();
+
+            const year = today.getFullYear();
+
+            const month = String(
+                today.getMonth() + 1
+            ).padStart(2, "0");
+
+            const day = String(
+                today.getDate()
+            ).padStart(2, "0");
+
+            dateInput.min =
+                `${year}-${month}-${day}`;
+
+        }
+
 
         bookingForm.addEventListener(
             "submit",
@@ -65,58 +58,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 const name =
-                    document
-                    .getElementById("customerName")
-                    .value
-                    .trim();
-
+                    document.getElementById("name").value.trim();
 
                 const phone =
-                    document
-                    .getElementById("customerPhone")
-                    .value
-                    .trim();
-
+                    document.getElementById("phone").value.trim();
 
                 const pickup =
-                    document
-                    .getElementById("pickup")
-                    .value
-                    .trim();
-
+                    document.getElementById("pickup").value.trim();
 
                 const destination =
-                    document
-                    .getElementById("destination")
-                    .value
-                    .trim();
-
+                    document.getElementById("destination").value.trim();
 
                 const date =
-                    document
-                    .getElementById("travelDate")
-                    .value;
-
+                    document.getElementById("date").value;
 
                 const passengers =
-                    document
-                    .getElementById("passengers")
-                    .value;
-
+                    document.getElementById("passengers").value;
 
                 const extraMessage =
-                    document
-                    .getElementById("customerMessage")
-                    .value
-                    .trim();
+                    document.getElementById("message").value.trim();
 
 
-
-                /* PHONE VALIDATION */
+                /* Validate phone */
 
                 const cleanPhone =
                     phone.replace(/\D/g, "");
-
 
                 if (cleanPhone.length !== 10) {
 
@@ -129,222 +95,74 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
 
+                if (!name ||
+                    !pickup ||
+                    !destination ||
+                    !date ||
+                    !passengers) {
 
-                /* DATE */
+                    alert(
+                        "Please fill in all required fields."
+                    );
 
-                let formattedDate = date;
-
-
-                if (date) {
-
-                    formattedDate =
-                        new Date(
-                            date + "T00:00:00"
-                        ).toLocaleDateString(
-                            "en-IN",
-                            {
-                                day: "2-digit",
-                                month: "long",
-                                year: "numeric"
-                            }
-                        );
+                    return;
 
                 }
 
 
+                /* Format date */
 
-                /* WHATSAPP MESSAGE */
+                const selectedDate =
+                    new Date(date + "T00:00:00");
 
-                let message =
-
-`🚕 *NEW RIDE WAVES BOOKING*
-
-👤 *Customer Name:* ${name}
-
-📱 *Customer Mobile:* ${cleanPhone}
-
-📍 *Pickup:* ${pickup}
-
-🏁 *Destination:* ${destination}
-
-📅 *Travel Date:* ${formattedDate}
-
-👥 *Passengers:* ${passengers}`;
+                const formattedDate =
+                    selectedDate.toLocaleDateString(
+                        "en-IN",
+                        {
+                            day: "2-digit",
+                            month: "long",
+                            year: "numeric"
+                        }
+                    );
 
 
-                if (extraMessage) {
+                /* WhatsApp booking message */
 
-                    message +=
+                const message =
 
-`
+`🚕 NEW RIDE WAVES BOOKING
 
-📝 *Additional Message:*
-${extraMessage}`;
+👤 Customer Name: ${name}
 
-                }
+📱 Customer Mobile: ${cleanPhone}
 
+📍 Pickup: ${pickup}
 
-                message +=
+🏁 Destination: ${destination}
 
-`
+📅 Travel Date: ${formattedDate}
+
+👥 Passengers: ${passengers}
+
+📝 Additional Message:
+${extraMessage || "None"}
 
 ━━━━━━━━━━━━━━━━
 Please contact the customer to confirm the ride.
 ━━━━━━━━━━━━━━━━`;
 
 
-
-                /* WHATSAPP URL */
-
-                const whatsappNumber =
-                    "918221826243";
-
-
                 const whatsappURL =
-                    "https://wa.me/" +
-                    whatsappNumber +
-                    "?text=" +
+                    "https://wa.me/918221826243?text=" +
                     encodeURIComponent(message);
 
 
-
-                /* OPEN WHATSAPP */
+                /* Open WhatsApp */
 
                 window.open(
                     whatsappURL,
                     "_blank"
                 );
-
-            }
-        );
-
-    }
-
-
-
-    /* =====================================
-       MINIMUM DATE = TODAY
-    ===================================== */
-
-    const dateInput =
-        document.getElementById("travelDate");
-
-
-    if (dateInput) {
-
-        const today =
-            new Date()
-            .toISOString()
-            .split("T")[0];
-
-
-        dateInput.min = today;
-
-    }
-
-
-
-    /* =====================================
-       SCROLL HEADER SHADOW
-    ===================================== */
-
-    const header =
-        document.querySelector(".header");
-
-
-    if (header) {
-
-        window.addEventListener(
-            "scroll",
-            function () {
-
-                if (window.scrollY > 40) {
-
-                    header.style.boxShadow =
-                        "0 5px 25px rgba(0,0,0,0.10)";
-
-                } else {
-
-                    header.style.boxShadow =
-                        "none";
-
-                }
-
-            }
-        );
-
-    }
-
-
-
-    /* =====================================
-       REVEAL ANIMATION
-    ===================================== */
-
-    const revealElements =
-        document.querySelectorAll(
-            ".service-card, " +
-            ".large-service-card, " +
-            ".route-card, " +
-            ".route-large-card, " +
-            ".review-card, " +
-            ".why-feature, " +
-            ".contact-card, " +
-            ".contact-big-card"
-        );
-
-
-    if ("IntersectionObserver" in window) {
-
-        const observer =
-            new IntersectionObserver(
-
-                function (entries) {
-
-                    entries.forEach(
-                        function (entry) {
-
-                            if (
-                                entry.isIntersecting
-                            ) {
-
-                                entry.target.style.opacity =
-                                    "1";
-
-                                entry.target.style.transform =
-                                    "translateY(0)";
-
-                                observer.unobserve(
-                                    entry.target
-                                );
-
-                            }
-
-                        }
-                    );
-
-                },
-
-                {
-                    threshold: 0.1
-                }
-
-            );
-
-
-        revealElements.forEach(
-            function (element) {
-
-                element.style.opacity = "0";
-
-                element.style.transform =
-                    "translateY(20px)";
-
-                element.style.transition =
-                    "opacity 0.6s ease, " +
-                    "transform 0.6s ease";
-
-                observer.observe(element);
 
             }
         );
